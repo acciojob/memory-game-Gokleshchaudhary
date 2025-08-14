@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import "../styles/App.css";
 
@@ -223,3 +224,6 @@ const WinMessage = ({ attempts, onPlayAgain }) => {
 };
 
 export default App;
+=======
+
+>>>>>>> 4fc0c344e38a6a43a5b75ea0645a52ae11aa7519
