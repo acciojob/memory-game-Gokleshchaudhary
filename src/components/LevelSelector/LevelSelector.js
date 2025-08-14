@@ -1,5 +1,4 @@
 import React from "react";
-import "./LevelSelector.css";
 
 const LevelSelector = ({ onStartGame }) => {
   const [level, setLevel] = useState("easy");
