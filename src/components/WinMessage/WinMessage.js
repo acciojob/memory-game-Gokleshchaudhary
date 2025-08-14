@@ -1,5 +1,4 @@
 import React from "react";
-import "./WinMessage.css";
 
 const WinMessage = ({ attempts, onPlayAgain }) => {
   return (

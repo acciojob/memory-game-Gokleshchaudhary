@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import LevelSelector from './components/LevelSelector/LevelSelector';
 import GameBoard from './components/GameBoard/GameBoard';
 import WinMessage from './components/WinMessage/WinMessage';
-import './App.css';
 
 function App() {
   const [gameState, setGameState] = useState('menu'); // 'menu', 'playing', 'won'

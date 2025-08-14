@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./GameBoard.css";
 
 const GameBoard = ({ level, onGameEnd, onReturnToMenu }) => {
   const [cards, setCards] = useState([]);
