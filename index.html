@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Memory Matching Game</title>
+    <style>
+      .levels_container {
+        margin-bottom: 20px;
+      }
+      .cells_container {
+        display: grid;
+        gap: 10px;
+      }
+      .tile {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eee;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .matched {
+        background: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="levels_container">
+      <button id="easy">Easy</button>
+      <button id="normal">Normal</button>
+      <button id="hard">Hard</button>
+    </div>
+    <div class="cells_container"></div>
+    <script type="module" src="./src/App.js"></script>
+  </body>
+</html>
