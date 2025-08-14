@@ -1,4 +1,95 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import "../styles/App.css";
+
+const App = () => {
+  const [gameState, setGameState] = useState("menu");
+  const [level, setLevel] = useState("easy");
+  const [finalAttempts, setFinalAttempts] = useState(0);
+
+  const startGame = (selectedLevel) => {
+    setLevel(selectedLevel);
+    setGameState("playing");
+  };
+
+  const endGame = (attempts) => {
+    setFinalAttempts(attempts);
+    setGameState("won");
+  };
+
+  const returnToMenu = () => {
+    setGameState("menu");
+  };
+
+  return (
+    <div className="app">
+      {gameState === "menu" && <LevelSelector onStartGame={startGame} />}
+      {gameState === "playing" && (
+        <GameBoard
+          level={level}
+          onGameEnd={endGame}
+          onReturnToMenu={returnToMenu}
+        />
+      )}
+      {gameState === "won" && (
+        <WinMessage
+          attempts={finalAttempts}
+          onPlayAgain={() => startGame(level)}
+        />
+      )}
+    </div>
+  );
+};
+
+const LevelSelector = ({ onStartGame }) => {
+  const [level, setLevel] = useState("easy");
+
+  return (
+    <div className="levels-container">
+      <h1>Memory Matching Game</h1>
+      <h2>Select Difficulty Level</h2>
+
+      <div className="levels">
+        <label>
+          <input
+            type="radio"
+            id="easy"
+            name="level"
+            value="easy"
+            checked={level === "easy"}
+            onChange={() => setLevel("easy")}
+          />
+          Easy (4 pairs)
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            id="normal"
+            name="level"
+            value="normal"
+            checked={level === "normal"}
+            onChange={() => setLevel("normal")}
+          />
+          Normal (8 pairs)
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            id="hard"
+            name="level"
+            value="hard"
+            checked={level === "hard"}
+            onChange={() => setLevel("hard")}
+          />
+          Hard (16 pairs)
+        </label>
+      </div>
+
+      <button onClick={() => onStartGame(level)}>Start Game</button>
+    </div>
+  );
+};
 
 const GameBoard = ({ level, onGameEnd, onReturnToMenu }) => {
   const [cards, setCards] = useState([]);
@@ -7,8 +98,7 @@ const GameBoard = ({ level, onGameEnd, onReturnToMenu }) => {
   const [attempts, setAttempts] = useState(0);
   const [disabled, setDisabled] = useState(false);
 
-  // Initialize game based on level
-  useEffect(() => {
+  React.useEffect(() => {
     startGame();
   }, [level]);
 
@@ -25,13 +115,11 @@ const GameBoard = ({ level, onGameEnd, onReturnToMenu }) => {
         pairs = 4;
     }
 
-    // Create pairs
     let numbers = [];
     for (let i = 1; i <= pairs; i++) {
       numbers.push(i, i);
     }
 
-    // Shuffle and create cards
     const shuffled = [...numbers]
       .sort(() => Math.random() - 0.5)
       .map((num, i) => ({
@@ -71,7 +159,6 @@ const GameBoard = ({ level, onGameEnd, onReturnToMenu }) => {
         setFlipped([]);
         setDisabled(false);
 
-        // Check for win
         if (matched.length + 2 === cards.length) {
           onGameEnd(attempts + 1);
         }
@@ -125,4 +212,14 @@ const GameBoard = ({ level, onGameEnd, onReturnToMenu }) => {
   );
 };
 
-export default GameBoard;
+const WinMessage = ({ attempts, onPlayAgain }) => {
+  return (
+    <div className="win-message">
+      <h2>Congratulations! You won!</h2>
+      <p>Total attempts: {attempts}</p>
+      <button onClick={onPlayAgain}>Play Again</button>
+    </div>
+  );
+};
+
+export default App;
