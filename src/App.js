@@ -98,6 +98,7 @@ function App() {
           isMatched ? "matched" : ""
         }`}
         onClick={() => handleCardClick(index)}
+        data-testid={`card-${index}`}
       >
         <div className="card-inner">
           <div className="card-front"></div>
@@ -109,7 +110,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Memory Matching Game</h1>
+      {/* Welcome Message Added */}
+      <div className="welcome-message">
+        <h1>Welcome to Memory Matching Game!</h1>
+        <p>Match pairs of numbers in the fewest attempts</p>
+      </div>
 
       {!gameStarted ? (
         <div className="level-selection">
@@ -123,6 +128,8 @@ function App() {
                   value={level}
                   checked={difficulty === level}
                   onChange={() => setDifficulty(level)}
+                  id={level} // Added ID for Cypress tests
+                  data-testid={`difficulty-${level}`}
                 />
                 {`${level.charAt(0).toUpperCase() + level.slice(1)} (${
                   config.pairs
@@ -130,7 +137,9 @@ function App() {
               </label>
             ))}
           </div>
-          <button onClick={startGame}>Start Game</button>
+          <button onClick={startGame} data-testid="start-button">
+            Start Game
+          </button>
         </div>
       ) : (
         <div className="game-container">
@@ -144,18 +153,21 @@ function App() {
             style={{
               gridTemplateColumns: `repeat(${difficulties[difficulty].columns}, 1fr)`,
             }}
+            data-testid="game-board"
           >
             {cards.map((number, index) => renderCard(number, index))}
           </div>
 
           {gameComplete && (
-            <div className="game-complete">
+            <div className="game-complete" data-testid="game-complete">
               <h2>Congratulations!</h2>
               <p>You completed the game in {attempts} attempts!</p>
             </div>
           )}
 
-          <button onClick={resetGame}>Reset Game</button>
+          <button onClick={resetGame} data-testid="reset-button">
+            Reset Game
+          </button>
         </div>
       )}
     </div>
