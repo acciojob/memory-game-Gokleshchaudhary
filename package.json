@@ -1,50 +1,16 @@
 {
-  "name": "react-boilerplate",
+  "name": "memory-game",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A memory matching game with Node.js",
+  "main": "server.js",
   "scripts": {
-    "test": "jest --no-color 2>output.txt",
-    "start": "webpack serve",
-    "build": "webpack --mode production"
+    "start": "node server.js",
+    "test": "cypress open"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "css-loader": "^4.3.0",
-    "jest-junit": "^11.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "style-loader": "^1.2.1",
-    "cypress": "^9.5.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less|sass|scss)$": "<rootDir>/config/CSSStub.js"
-    },
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "reporters": [
-      "default",
-      "jest-junit"
-    ]
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.0",
-    "@babel/preset-env": "^7.22.0",
-    "@babel/preset-react": "^7.10.4",
-    "babel-loader": "^9.1.3",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
-    "enzyme-to-json": "^3.5.0",
-    "html-webpack-plugin": "^4.5.0",
-    "jest": "^26.4.2",
-    "react-test-renderer": "^16.13.1",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.0",
-    "xml-js": "^1.6.11"
+    "cypress": "^9.7.0"
   }
 }
