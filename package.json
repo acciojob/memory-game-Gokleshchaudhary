@@ -1,7 +1,7 @@
 {
   "name": "memory-game",
   "version": "1.0.0",
-  "description": "A memory matching game with Node.js",
+  "description": "Memory Matching Card Game",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

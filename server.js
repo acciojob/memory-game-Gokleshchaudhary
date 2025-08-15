@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 8080;
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// Routes
+// Root route
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
