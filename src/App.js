@@ -3,26 +3,6 @@ import "./styles.css";
 
 function App() {
   const [level, setLevel] = useState(null);
-  const [tiles, setTiles] = useState([]);
-
-  const startGame = (selectedLevel) => {
-    setLevel(selectedLevel);
-
-    let pairs = 0;
-    if (selectedLevel === "easy") pairs = 4;
-    if (selectedLevel === "normal") pairs = 8;
-    if (selectedLevel === "hard") pairs = 16;
-
-    // numbers generate karo (pairs * 2 tiles)
-    const numbers = [];
-    for (let i = 1; i <= pairs; i++) {
-      numbers.push(i, i);
-    }
-
-    // shuffle tiles
-    const shuffled = numbers.sort(() => Math.random() - 0.5);
-    setTiles(shuffled);
-  };
 
   return (
     <div className="app">
@@ -30,29 +10,41 @@ function App() {
         <div>
           <h1>Welcome!</h1>
           <div className="levels_container">
-            <button id="easy" onClick={() => startGame("easy")}>
+            <label>
+              <input
+                type="radio"
+                id="easy"
+                name="level"
+                onChange={() => setLevel("easy")}
+              />
               Easy
-            </button>
-            <button id="normal" onClick={() => startGame("normal")}>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="normal"
+                name="level"
+                onChange={() => setLevel("normal")}
+              />
               Normal
-            </button>
-            <button id="hard" onClick={() => startGame("hard")}>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="hard"
+                name="level"
+                onChange={() => setLevel("hard")}
+              />
               Hard
-            </button>
+            </label>
           </div>
         </div>
       )}
 
       {level && (
-        <div>
+        <div className="cells_container">
           <h2>{level.charAt(0).toUpperCase() + level.slice(1)} Mode</h2>
-          <div className="cells_container">
-            {tiles.map((num, index) => (
-              <div key={index} className="cell">
-                ?
-              </div>
-            ))}
-          </div>
+          {/* Tiles generate होंगे यहाँ */}
         </div>
       )}
     </div>
