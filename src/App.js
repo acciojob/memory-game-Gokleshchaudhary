@@ -10,33 +10,15 @@ function App() {
         <div>
           <h1>Welcome!</h1>
           <div className="levels_container">
-            <label>
-              <input
-                type="radio"
-                id="easy"
-                name="level"
-                onChange={() => setLevel("easy")}
-              />
+            <button id="easy" onClick={() => setLevel("easy")}>
               Easy
-            </label>
-            <label>
-              <input
-                type="radio"
-                id="normal"
-                name="level"
-                onChange={() => setLevel("normal")}
-              />
+            </button>
+            <button id="normal" onClick={() => setLevel("normal")}>
               Normal
-            </label>
-            <label>
-              <input
-                type="radio"
-                id="hard"
-                name="level"
-                onChange={() => setLevel("hard")}
-              />
+            </button>
+            <button id="hard" onClick={() => setLevel("hard")}>
               Hard
-            </label>
+            </button>
           </div>
         </div>
       )}
@@ -44,7 +26,7 @@ function App() {
       {level && (
         <div className="cells_container">
           <h2>{level.charAt(0).toUpperCase() + level.slice(1)} Mode</h2>
-          {/* Tiles generate होंगे यहाँ */}
+          {/* यहाँ बाद में tiles generate होंगे */}
         </div>
       )}
     </div>
