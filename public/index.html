@@ -1,40 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memory Matching Game</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Memory Game</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Memory Matching Game</h1>
-
-      <div class="levels_container">
-        <h2>Select Difficulty Level:</h2>
-        <div class="levels">
-          <input type="radio" id="easy" name="level" value="easy" checked />
-          <label for="easy">Easy (4 pairs)</label>
-
-          <input type="radio" id="normal" name="level" value="normal" />
-          <label for="normal">Normal (8 pairs)</label>
-
-          <input type="radio" id="hard" name="level" value="hard" />
-          <label for="hard">Hard (16 pairs)</label>
-        </div>
-        <button id="start-btn">Start Game</button>
-      </div>
-
-      <div class="game-container hidden">
-        <div class="stats">
-          <p>Attempts: <span id="attempts">0</span></p>
-          <p>Matches: <span id="matches">0</span></p>
-        </div>
-        <div class="cells_container"></div>
-        <button id="reset-btn">Reset Game</button>
-      </div>
-    </div>
-
-    <script src="js/game.js"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
   </body>
 </html>
