@@ -10,15 +10,14 @@ function App() {
         <div>
           <h1>Welcome!</h1>
           <div className="levels_container">
-            <button id="easy" onClick={() => setLevel("easy")}>
+            <input type="radio" id="level" onClick={() => setLevel("easy")}/>
               Easy
-            </button>
-            <button id="normal" onClick={() => setLevel("normal")}>
+            <input type="radio" id="level" onClick={() => setLevel("normal")}>
               Normal
-            </button>
-            <button id="hard" onClick={() => setLevel("hard")}>
+            </input>
+            <input type="radio" id="level" onClick={() => setLevel("hard")}>
               Hard
-            </button>
+            </input>
           </div>
         </div>
       )}
