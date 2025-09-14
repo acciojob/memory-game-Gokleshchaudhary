@@ -1,34 +1,13 @@
 {
   "name": "memory-game",
   "version": "1.0.0",
-  "private": true,
-  "description": "A simple Memory Matching Game built with React 16.",
+  "description": "Memory Game in Plain JS",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
-  },
-  "dependencies": {
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "4.0.3"
+    "start": "node server.js",
+    "test": "cypress open"
   },
   "devDependencies": {
-    "cypress": "^9.7.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "cypress": "^13.0.0"
   }
 }

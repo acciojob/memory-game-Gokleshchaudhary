@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>Memory Game</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Memory Matching Game</h1>
 
-    <!-- Level Selection (exact selectors requested) -->
     <section class="levels_container">
-      <label
-        ><input type="radio" name="level" id="easy" checked /> Easy (4
-        pairs)</label
-      >
-      <label
-        ><input type="radio" name="level" id="normal" /> Normal (8 pairs)</label
-      >
-      <label
-        ><input type="radio" name="level" id="hard" /> Hard (16 pairs)</label
-      >
+      <label><input type="radio" name="level" id="easy" checked /> Easy</label>
+      <label><input type="radio" name="level" id="normal" /> Normal</label>
+      <label><input type="radio" name="level" id="hard" /> Hard</label>
       <button id="startBtn">Start Game</button>
     </section>
 
-    <!-- Game Grid -->
     <section class="cells_container"></section>
-
-    <!-- Attempts counter -->
-    <p id="info">Attempts: <span id="attempts">0</span></p>
+    <p>Attempts: <span id="attempts">0</span></p>
 
     <script src="app.js"></script>
   </body>
